@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rice Disease AI - Hệ thống Nhận diện Bệnh Lúa</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div class="container glass-panel">
+        <header>
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+                <h1>Rice Disease AI</h1>
+            </div>
+            <p>Trí tuệ nhân tạo phân tích và chẩn đoán 10 loại bệnh trên lá lúa chỉ trong tích tắc.</p>
+        </header>
+
+        <main>
+            <div id="drop-zone" class="upload-area">
+                <input type="file" id="file-input" accept="image/*" hidden>
+                <div class="upload-content">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                    </svg>
+                    <h3>Kéo thả ảnh lá lúa vào đây</h3>
+                    <p>Hoặc <span class="highlight">nhấn để duyệt file</span></p>
+                    <span class="support-text">Hỗ trợ định dạng: JPG, PNG, JPEG</span>
+                </div>
+                <!-- Vùng hiển thị bản xem trước ảnh -->
+                <div id="image-preview-container" class="hidden">
+                    <img id="image-preview" src="" alt="Preview">
+                    <button id="remove-btn" class="close-btn" title="Xóa ảnh">&times;</button>
+                </div>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Hệ thống AI đang phân tích...</p>
+            </div>
+
+            <!-- Kết quả nhận diện -->
+            <div id="result-container" class="hidden">
+                <div class="result-card">
+                    <h2 class="result-title">Kết quả Chẩn đoán</h2>
+                    <div class="result-data">
+                        <div class="data-group">
+                            <span class="label">Loại bệnh phát hiện:</span>
+                            <strong id="disease-name" class="disease-name">--</strong>
+                        </div>
+                        <div class="data-group">
+                            <span class="label">Độ tin cậy:</span>
+                            <div class="confidence-bar-bg">
+                                <div id="confidence-bar" class="confidence-bar-fill"></div>
+                            </div>
+                            <strong id="confidence-val" class="confidence-val">--%</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Powered by <strong>ResNet50</strong> & <strong>CBAM Attention</strong></p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
