@@ -1,0 +1,9 @@
+torch
+torchvision
+opencv-python
+scikit-learn
+matplotlib
+tensorboard
+tqdm
+flask
+werkzeug
