@@ -15,7 +15,19 @@ from torchvision import transforms
 
 # Import model architecture
 from models import build_model
-from Train_Lua import CLASS_NAMES
+
+CLASS_NAMES = [
+    'Bacterial Leaf Blight',
+    'Brown Spot',
+    'Healthy',
+    'Leaf Blast',
+    'Leaf Scald',
+    'Narrow Brown Spot',
+    'Neck Blast',
+    'Rice Hispa',
+    'Sheath Blight',
+    'Tungro'
+]
 
 # --- Configuration & Logging ---
 logging.basicConfig(
