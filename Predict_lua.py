@@ -119,7 +119,7 @@ def inference(args):
     image_pil = Image.open(args.image_path).convert("RGB")
     image_tensor = transform(image_pil).unsqueeze(0).to(device)  # shape: [1, 3, H, W]
 
-    # --- Tải mô hình VGG16-BN + CBAM ---
+    # --- Tải mô hình RESNet50 + CBAM ---
 
     # Checkpoint đã load sẵn ở trên, chỉ cần chuyển về thiết bị
     # và load state dict đã khớp với num_classes
